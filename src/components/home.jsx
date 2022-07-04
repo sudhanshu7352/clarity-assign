@@ -36,6 +36,9 @@ export const Home =()=>{
      })
      
  }
+ const add =()=>{
+         
+ }
     return(
         <div className="main_div">
       <div id="upper_div">
@@ -58,6 +61,7 @@ export const Home =()=>{
            
           <br />
           <input type="submit" id="button" value="Submit" />
+          <input type="text" id="button2" value="Add" onClick={handle}/>
         </form>
       </div>
       <div>
