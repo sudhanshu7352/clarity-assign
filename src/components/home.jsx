@@ -6,13 +6,7 @@ export const Home =()=>{
    const [data,setData] =useState({field_1:""})
    const [show,setShow] =useState([])
 
-   useEffect(()=>{
-    axios.get("http://localhost:3000/TableData").then((res)=>{
-      // setShow([...show,res.data])
-       console.log(res.data,"hi")
-    })
-    
- },[])
+  
    const handleChange = (e) => {
     //  let {id,value} =e.target
     setData({field_1:e.target.value});
@@ -24,11 +18,24 @@ export const Home =()=>{
     axios.post("http://localhost:3000/TableData",data).then(()=>{
         //    setData()
     })
+    .then(()=>{
+        getData()
+    })
     .catch((err)=>{
         console.log(err)
     })
   };
- 
+  useEffect(()=>{
+   getData()
+ },[])
+
+ const getData=()=>{
+    axios.get("http://localhost:3000/TableData").then((res)=>{
+        setShow(res.data)
+        console.log(res.data,"hi")
+     })
+     
+ }
     return(
         <div className="main_div">
       <div id="upper_div">
@@ -54,7 +61,23 @@ export const Home =()=>{
         </form>
       </div>
       <div>
-     
+        <h1>Form Data</h1>
+       <table>
+        <thead>
+           <tr>
+            <th>
+               Field 1
+            </th>
+           </tr>
+        </thead>
+        <tbody>
+          {show.map((e)=>(
+            <tr key={e.id}>
+                <td>{e.field_1}</td>
+            </tr>
+          ))}
+        </tbody>
+       </table>
       </div>
     </div>
   );

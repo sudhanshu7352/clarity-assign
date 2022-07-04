@@ -1,12 +1,14 @@
 
 .main_div{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     margin: auto;
+    width: 66%;
 }
 .main_div>div{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 20px 50px;
-    margin: 30px;
+    padding: 20px 40px;
+    margin: 20px;
 }
 #upper_div h2{
     font-size: 21px;
@@ -22,7 +24,7 @@
    margin-left: 10px;
    padding-left: 5px;
   }
-  #upper_div h1{
+   h1{
     font-size: 26px;
     color: rgb(47, 72, 216);
     margin-bottom: 5px;
@@ -40,4 +42,24 @@
   #button:hover{
     cursor: pointer;
     opacity: 70%;
+  }
+  tr,th,td,thead,tbody{
+    border: 2px solid gray;
+    padding: 3px;
+}
+table{
+    margin: auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: cursive;
+}
+
+@media only screen and (max-width: 660px) {
+    .main_div{
+       grid-template-columns: repeat(1,1fr);
+        width: 98%;
+    }
+    /* table{
+        width: 100%;
+    } */
   }
