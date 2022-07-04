@@ -5,7 +5,7 @@ import "./home.css"
 export const Home =()=>{
    const [data,setData] =useState({field_1:""})
    const [show,setShow] =useState([])
-
+   const [arr,setArr] =useState([])  
   
    const handleChange = (e) => {
     //  let {id,value} =e.target
@@ -36,8 +36,9 @@ export const Home =()=>{
      })
      
  }
- const add =()=>{
-         
+ let x=1
+ const handle =()=>{
+     setArr(x++)    
  }
     return(
         <div className="main_div">
